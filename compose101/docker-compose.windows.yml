@@ -1,0 +1,14 @@
+version: '3'
+services:
+  back:
+    build: 
+      context: ./back
+      dockerfile: Dockerfile.windows
+    image: msexpdocker.azurecr.io/compose101/back:windows
+  front:
+    build: 
+      context: ./front
+      dockerfile: Dockerfile.windows
+    image: msexpdocker.azurecr.io/compose101/front:windows
+    ports:
+      - "80:80"

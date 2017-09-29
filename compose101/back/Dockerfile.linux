@@ -1,0 +1,10 @@
+FROM golang:1.8.3 AS build
+ENV CGO_ENABLED=0
+WORKDIR /go/app
+COPY main.go /go/app
+RUN go build
+
+FROM scratch
+EXPOSE 80
+COPY --from=build /go/app/app /app
+CMD ["/app"] 

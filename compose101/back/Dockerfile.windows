@@ -1,0 +1,9 @@
+FROM golang:1.8.3-nanoserver AS build
+WORKDIR /go/app
+COPY main.go /go/app
+RUN go build
+
+FROM microsoft/nanoserver
+EXPOSE 80
+COPY --from=build /go/app/app.exe /app.exe
+CMD app.exe

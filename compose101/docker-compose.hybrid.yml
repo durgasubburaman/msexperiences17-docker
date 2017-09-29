@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  back:
+    image: msexpdocker.azurecr.io/compose101/back:linux
+    deploy:
+      endpoint_mode: dnsrr
+    networks:
+      - overlay
+  front:
+    image: msexpdocker.azurecr.io/compose101/front:windows
+    ports:
+      - "80:80"
+    networks:
+      - overlay
+networks:
+  overlay:

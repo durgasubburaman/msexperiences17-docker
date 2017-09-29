@@ -1,0 +1,14 @@
+version: '3'
+services:
+  back:
+    build: 
+      context: ./back
+      dockerfile: Dockerfile.linux
+    image: msexpdocker.azurecr.io/compose101/back:linux
+  front:
+    build: 
+      context: ./front
+      dockerfile: Dockerfile.linux
+    image: msexpdocker.azurecr.io/compose101/front:linux
+    ports:
+      - "80:80"
