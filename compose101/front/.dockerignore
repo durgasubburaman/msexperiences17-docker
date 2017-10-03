@@ -1,2 +1,4 @@
 Dockerfile.windows
 Dockerfile.linux
+bin/
+obj/
